@@ -1,13 +1,13 @@
 [TOC]
 
-总结
+# 总结
 
 >1. 新建本地仓库
 >     git  init
 >2. 添加文件到新建的仓库
 >    git  add  *
 > 3. 添加备注
->   git   commit   -m   "备注内容"
+>     git   commit   -m   "备注内容"
 > 4. 切换分支
 >    git branch -M 分支名
 > 5. 添加远程连接
