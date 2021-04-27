@@ -65,3 +65,106 @@ rm 	 *.txt				#删除文件
 
 切换用户命令: su
 查看用户命令:users who w
+
+
+
+#### ssh
+
+> ssh -V   #查看SSH 客户端版本
+>
+> ssh name@remoteserver	#连接到远程主机
+>
+> ssh name@remoteserver  -p  222	# 连接到指定的端口
+>
+> ssh -t remoteserver1 ssh remoteserver2		#通过远程主机1跳到远程主机2
+
+#### 进程
+
+>1. echo $$ *#查看父进程的PID*
+>2. bash *#启动一个新的进程*
+>3. echo $$ *#查看新启动进程的PID（该进程即为子进程）*
+>4. echo $PPID  *#查看该子进程的父进程的PID*
+>5. pstree $PPID -p
+>6. exit *#退出该子进程*
+>7. echo $$ *#查看进程的PID，应与和第一行的相同*
+
+##### `ps`
+
+选项说明:
+-a 显示所有用户的所有进程。
+-x 显示无终端的进程。
+-u 显示更多信息，类似于 -f 选项。
+-e 显示所有进程。
+
+> ps   -a
+>
+> pstree 1  # 进程树
+
+#### 磁盘管理
+
+>df 		#将系统内所有的文件系统列出来
+>
+>df  -h 	#将系统内所有的文件系统以人类易读的方式列出来
+>
+>df  -a	#将系统内的所有特殊文件格式及名称都列出来
+>
+>du 		#只列出当前目录下的所有文件夹容量（包括隐藏文件夹)
+>
+>du -a  	 #将文件的容量也列出来
+>
+>du -sh *	#列出当前路径下所有的目录和文件容量
+>
+>lsblk 	#将系统内所有的文件系统列出来
+>
+>![images20210426200152](https://github.com/Lichee-cpu/images/raw/master/images/images20210426200152.png)
+>
+>fdisk -l	#查看所有磁盘分区的信息
+>
+>fdisk /dev/vdb		#输入 m 后选择p为打印该磁盘分区的信息
+>
+>mkfs -t ext3 /dev/vdc6		#将指定分区和文件系统进行格式化
+>
+>umount /dev/vdc6		#磁盘挂载与卸除
+
+#### 性能监控
+
+##### `top`
+
+Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况及总体状况。实时显示系统中各个进程的资源占用状况及总体状况
+
+##### `mpstat`
+
+实时系统监控工具，它会报告与多核心CPU相关的统计信息。
+
+>apt install sysstat -y
+>mpstat 1 #每隔一秒输出CPU占用情况
+
+##### 内存监控相关命令
+
+###### `free`命令
+
+![images20210426200819](https://github.com/Lichee-cpu/images/raw/master/images/images20210426200819.png)
+
+>total：物理内存大小，就是机器实际的内存
+>used：已使用的内存大小，这个值包括了 cached 和 应用程序实际使用的内存
+>free：未被使用的内存大小
+>shared：共享内存大小，是进程间通信的一种方式
+>buffers：被缓冲区占用的内存大小
+>cached：被缓存占用的内存大小
+
+##### `vmstat`
+
+是对系统的整体情况进行统计，包括内核进程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息。命令格式：vmstat 2 100，其中2表示刷新间隔，100表示输出次数。
+
+![](https://github.com/Lichee-cpu/images/raw/master/images/images20210426201053.png)
+
+
+
+> netstat -aup # 输出所有UDP连接状况
+> netstat -atp # 输出所有TCP连接状况
+> netstat -s # 显示各个协议的网络统计信息
+> netstat -i # 显示网卡列表
+> netstat -r # 显示路由表信息
+
+
+
