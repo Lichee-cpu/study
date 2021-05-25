@@ -583,3 +583,23 @@ print(v1 + v2)
 
 ### 测试模块 doctest
 
+### 虚拟环境venv的使用：
+
+> 支持python3.3以上，自带
+>
+> 创建环境：python -m venv envName
+>
+> 进入环境里面：envName\scripts\activate 
+>
+> 安装模块：pip install numpy
+>
+> 查看模块： pip list
+>
+> 退出环境：deactivate.bat
+
+>![](https://github.com/Lichee-cpu/images/raw/master/images/images20210525184122.png)
+>
+>
+
+
+
